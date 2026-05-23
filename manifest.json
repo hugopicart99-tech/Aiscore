@@ -1,0 +1,29 @@
+{
+  "name": "ScoresAI — AI Football Predictions",
+  "short_name": "ScoresAI",
+  "description": "AI-powered football predictions and live scores for every match",
+  "start_url": "/predictions",
+  "display": "standalone",
+  "background_color": "#07081A",
+  "theme_color": "#7C3AED",
+  "orientation": "portrait",
+  "lang": "en",
+  "categories": ["sports", "entertainment"],
+  "icons": [
+    { "src": "/icons/icon-72.png",  "sizes": "72x72",   "type": "image/png" },
+    { "src": "/icons/icon-96.png",  "sizes": "96x96",   "type": "image/png" },
+    { "src": "/icons/icon-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "screenshots": [
+    { "src": "/screenshots/home.jpg", "sizes": "390x844", "type": "image/jpeg", "label": "ScoresAI Home" },
+    { "src": "/screenshots/predictions.jpg", "sizes": "390x844", "type": "image/jpeg", "label": "AI Predictions" }
+  ],
+  "shortcuts": [
+    { "name": "Today's Predictions", "url": "/predictions", "description": "See AI predictions for today" },
+    { "name": "Leaderboard",         "url": "/predictor",  "description": "Community predictor ranking" }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

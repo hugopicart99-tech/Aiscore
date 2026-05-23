@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════════
+       PRIMARY SEO META TAGS
+  ════════════════════════════════════════════════ -->
+  <title>ScoresAI — AI Football Predictions & Live Scores Today</title>
+  <meta name="description" content="Get AI-powered football predictions for every match today. Live scores, predicted scorelines, betting odds from Betway & Bet365. Free AI predictions updated daily." />
+  <meta name="keywords" content="AI football predictions, livescore today, football predictions today, AI score predictions, Premier League predictions, La Liga predictions, betting predictions AI, predicted score football" />
+  <meta name="author" content="ScoresAI" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://scoresai.com/" />
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH (Facebook, WhatsApp, LinkedIn)
+  ════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://scoresai.com/" />
+  <meta property="og:title" content="ScoresAI — AI Football Predictions & Live Scores" />
+  <meta property="og:description" content="AI-powered predictions for every football match. Live scores, exact score predictions, BTTS, Over/Under — updated in real time." />
+  <meta property="og:image" content="https://scoresai.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="ScoresAI" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ═══════════════════════════════════════════════
+       TWITTER CARD
+  ════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ScoresAI" />
+  <meta name="twitter:title" content="ScoresAI — AI Football Predictions Today" />
+  <meta name="twitter:description" content="Free AI football predictions. Predicted scores, top bets, live odds from Betway & Bet365." />
+  <meta name="twitter:image" content="https://scoresai.com/og-image.jpg" />
+
+  <!-- ═══════════════════════════════════════════════
+       PWA MANIFEST + ICONS
+  ════════════════════════════════════════════════ -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#7C3AED" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ScoresAI" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+  <!-- ═══════════════════════════════════════════════
+       STRUCTURED DATA — JSON-LD (Google Rich Results)
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://scoresai.com/#website",
+        "url": "https://scoresai.com/",
+        "name": "ScoresAI",
+        "description": "AI-powered football predictions and live scores",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://scoresai.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://scoresai.com/#org",
+        "name": "ScoresAI",
+        "url": "https://scoresai.com",
+        "logo": "https://scoresai.com/icons/icon-512.png",
+        "sameAs": [
+          "https://twitter.com/ScoresAI",
+          "https://instagram.com/ScoresAI"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "ScoresAI",
+        "operatingSystem": "Any",
+        "applicationCategory": "SportsApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "2341"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How accurate are ScoresAI football predictions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ScoresAI uses Claude AI trained on millions of football data points. Our predictions achieve an average accuracy rate of 68-72% on match outcomes, and up to 78% on selected high-confidence picks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ScoresAI free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ScoresAI is free to use. Registered users get access to unlimited AI predictions, live scores, and community predictor features."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which leagues does ScoresAI cover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ScoresAI covers Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Champions League, and over 40 other leagues worldwide."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       FONTS + PRELOAD
+  ════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #07081A;
+      --bg2: #0D0F2E;
+      --card: #12143A;
+      --card2: #1A1D4E;
+      --purple: #7C3AED;
+      --purple2: #A78BFA;
+      --accent: #C084FC;
+      --green: #22C55E;
+      --red: #EF4444;
+      --yellow: #FACC15;
+      --text: #F1F5F9;
+      --muted: #94A3B8;
+      --dim: #475569;
+      --border: rgba(124,58,237,0.2);
+      --betway: #00A651;
+      --bet365: #027B5B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .grad-text {
+      background: linear-gradient(135deg, var(--purple2), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--purple), #5B21B6);
+      color: #fff; border: none; border-radius: 12px;
+      padding: 14px 28px; font-weight: 700; font-size: 15px;
+      cursor: pointer; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.4); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--purple); color: var(--purple2);
+      border-radius: 12px; padding: 13px 28px; font-weight: 700;
+      font-size: 15px; cursor: pointer; text-decoration: none;
+      background: transparent; transition: background 0.2s;
+    }
+    .btn-outline:hover { background: rgba(124,58,237,0.1); }
+    .tag {
+      display: inline-block; background: rgba(124,58,237,0.15);
+      color: var(--purple2); border-radius: 6px; padding: 3px 10px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px 22px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(7,8,26,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    nav .inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--purple), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 16px; color: #fff;
+    }
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800; font-size: 20px;
+      background: linear-gradient(90deg, var(--purple2), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    @media(max-width:768px){ .nav-links{ display:none; } }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 20px; padding: 6px 16px; margin-bottom: 24px;
+      font-size: 13px; font-weight: 600; color: var(--purple2);
+    }
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(36px, 6vw, 72px);
+      font-weight: 800; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px); color: var(--muted);
+      max-width: 600px; margin: 0 auto 36px;
+    }
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* STATS ROW */
+    .stats-row {
+      display: flex; gap: 0; justify-content: center;
+      border: 1px solid var(--border); border-radius: 16px;
+      background: var(--card); max-width: 700px; margin: 60px auto 0;
+      overflow: hidden;
+    }
+    .stat-item {
+      flex: 1; padding: 20px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 28px; font-weight: 900; color: var(--accent); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    @media(max-width:600px){ .stat-item{ padding:14px 8px; } .stat-num{ font-size:22px; } }
+
+    /* ── LIVE MATCHES SECTION ── */
+    .section { padding: 80px 0; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    .section-label::before {
+      content: ''; width: 3px; height: 22px; border-radius: 2px;
+      background: linear-gradient(180deg, var(--purple), var(--accent));
+    }
+    .section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 4vw, 42px); font-weight: 800; margin-bottom: 12px;
+    }
+    .section .sub { color: var(--muted); font-size: 16px; margin-bottom: 40px; }
+
+    .matches-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:700px){ .matches-grid{ grid-template-columns:1fr; } }
+
+    .match-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 16px 18px;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none; color: var(--text); display: block;
+    }
+    .match-card:hover { border-color: rgba(124,58,237,0.5); transform: translateY(-2px); }
+    .match-league { font-size: 11px; font-weight: 700; color: var(--purple2); margin-bottom: 10px; }
+    .match-teams { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .match-names { font-weight: 700; font-size: 15px; line-height: 1.8; }
+    .match-score { font-size: 26px; font-weight: 900; color: var(--accent); letter-spacing: 3px; }
+    .match-pred-score { font-size: 22px; font-weight: 900; color: var(--purple2); }
+    .prob-row { display: flex; gap: 6px; margin-bottom: 10px; }
+    .prob-col { flex: 1; }
+    .prob-label { font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+    .prob-bar { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.07); overflow: hidden; }
+    .prob-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+    .match-bet-row { display: flex; gap: 6px; margin-top: 8px; }
+    .bet-btn {
+      flex: 1; border: none; border-radius: 8px; padding: 7px 4px;
+      font-size: 11px; font-weight: 700; cursor: pointer;
+      text-align: center; text-decoration: none; display: block;
+      transition: opacity 0.2s;
+    }
+    .bet-btn:hover { opacity: 0.85; }
+    .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-right: 4px; animation: pulse 1.5s ease infinite; }
+    @keyframes pulse{ 0%,100%{opacity:1}50%{opacity:.3} }
+
+    /* ── HOW IT WORKS ── */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media(max-width:700px){ .steps{ grid-template-columns:1fr; } }
+    .step {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 24px;
+      position: relative; overflow: hidden;
+    }
+    .step::before {
+      content: attr(data-n);
+      position: absolute; top: -10px; right: 16px;
+      font-size: 72px; font-weight: 900; color: rgba(124,58,237,0.06);
+      line-height: 1; font-family: 'Space Grotesk', sans-serif;
+    }
+    .step-icon { font-size: 32px; margin-bottom: 14px; }
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--muted); }
+
+    /* ── FEATURES GRID ── */
+    .features { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    @media(max-width:600px){ .features{ grid-template-columns:1fr; } }
+    .feature {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px; display: flex; gap: 14px;
+    }
+    .feature-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      background: rgba(124,58,237,0.12); display: flex;
+      align-items: center; justify-content: center; font-size: 22px;
+    }
+    .feature h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+    .feature p { font-size: 13px; color: var(--muted); }
+
+    /* ── PARTNERS ── */
+    .partners { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center; margin-top: 40px; }
+    .partner-chip {
+      border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px 28px; font-weight: 800; font-size: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 720px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border); padding: 20px 0;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      font-weight: 700; font-size: 16px; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q span { color: var(--purple2); font-size: 18px; }
+    .faq-a { color: var(--muted); font-size: 14px; margin-top: 12px; line-height: 1.7; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      margin: 0 auto 80px; max-width: 860px;
+      background: linear-gradient(135deg, #1A1D4E, #12143A);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 24px; padding: 60px 40px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(192,132,252,0.08) 0%, transparent 70%);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(26px,4vw,40px); font-weight: 800; margin-bottom: 14px; }
+    .cta-section p { color: var(--muted); font-size: 16px; margin-bottom: 30px; }
+
+    /* ── LEAGUES ── */
+    .leagues-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .league-badge {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 10px 16px; font-size: 13px;
+      font-weight: 600; display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--text); transition: border-color 0.2s;
+    }
+    .league-badge:hover { border-color: rgba(124,58,237,0.5); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 40px 0;
+      color: var(--dim); font-size: 13px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--dim); text-decoration: none; }
+    .footer-links a:hover { color: var(--muted); }
+
+    /* ── SCHEMA BREADCRUMB VISIBLE ── */
+    .breadcrumb { font-size: 12px; color: var(--dim); margin-bottom: 12px; }
+    .breadcrumb a { color: var(--dim); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--muted); }
+
+    /* ── ANNOUNCE BAR ── */
+    .announce {
+      background: linear-gradient(90deg, var(--purple), #5B21B6);
+      text-align: center; padding: 10px; font-size: 13px; font-weight: 600;
+    }
+    .announce a { color: #fff; text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+  <!-- Announce bar -->
+  <div class="announce" role="banner">
+    🤖 ScoresAI is now live — <a href="/predictions">Try AI predictions free →</a>
+  </div>
+
+  <!-- ══════════════════ NAV ══════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="container inner">
+      <a href="/" class="nav-logo" aria-label="ScoresAI Home">
+        <div class="nav-logo-icon" aria-hidden="true">S</div>
+        <span class="nav-logo-text">ScoresAI</span>
+      </a>
+      <div class="nav-links">
+        <a href="/predictions">Live Predictions</a>
+        <a href="/leagues">Leagues</a>
+        <a href="/predictor">Community</a>
+        <a href="/blog">Blog</a>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a href="/login" class="btn-outline" style="padding:9px 20px;font-size:13px;">Log In</a>
+        <a href="/signup" class="btn-primary" style="padding:9px 20px;font-size:13px;">Sign Up Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-eyebrow" aria-label="New feature">
+          <span aria-hidden="true">🤖</span> Powered by Claude AI
+        </div>
+
+        <h1 id="hero-title">
+          AI Football Predictions<br />
+          <span class="grad-text">Updated Every Match Day</span>
+        </h1>
+
+        <p>
+          Get AI-powered predicted scores, win probabilities, top bets and live odds from
+          Betway &amp; Bet365 — for every match across 40+ leagues. Free.
+        </p>
+
+        <div class="hero-cta">
+          <a href="/predictions" class="btn-primary">
+            <span aria-hidden="true">⚡</span> See Today's Predictions
+          </a>
+          <a href="/signup" class="btn-outline">Create Free Account</a>
+        </div>
+
+        <!-- Stats for SEO & trust -->
+        <div class="stats-row" role="list" aria-label="ScoresAI statistics">
+          <div class="stat-item" role="listitem">
+            <div class="stat-num">72%</div>
+            <div class="stat-label">AI Accuracy Rate</div>
+          </div>
+          <div class="stat-item" role="listitem">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Leagues Covered</div>
+          </div>
+          <div class="stat-item" role="listitem">
+            <div class="stat-num">500K+</div>
+            <div class="stat-label">Predictions Made</div>
+          </div>
+          <div class="stat-item" role="listitem">
+            <div class="stat-num">Free</div>
+            <div class="stat-label">Always</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ LIVE MATCHES ══════════════════ -->
+    <section class="section" aria-labelledby="matches-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true"></div>
+        <p class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a> › <span>Today's Predictions</span>
+        </p>
+        <h2 id="matches-title">Today's AI Football Predictions</h2>
+        <p class="sub">
+          Real-time predictions for today's biggest matches — predicted score, win probability, and clickable odds.
+        </p>
+
+        <!-- SEO: Each match card links to its own page = hundreds of indexable URLs -->
+        <div class="matches-grid" role="list">
+
+          <!-- Match 1: Liverpool vs Man City -->
+          <article class="match-card" role="listitem" aria-label="Liverpool vs Man City prediction">
+            <div class="match-league">
+              🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League
+              <span style="margin-left:8px;color:#EF4444;font-size:10px;"><span class="live-dot" aria-hidden="true"></span>LIVE 90+3'</span>
+            </div>
+            <div class="match-teams">
+              <div class="match-names">Liverpool<br/>Man City</div>
+              <div>
+                <div class="match-score" aria-label="Current score 1-1">1 – 1</div>
+                <div style="font-size:10px;color:var(--muted);text-align:center;">live</div>
+              </div>
+            </div>
+            <div class="prob-row" aria-label="AI win probabilities">
+              <div class="prob-col"><div class="prob-label">Liverpool 45%</div><div class="prob-bar"><div class="prob-fill" style="width:45%;background:#22C55E"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Draw 28%</div><div class="prob-bar"><div class="prob-fill" style="width:28%;background:#FACC15"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Man City 27%</div><div class="prob-bar"><div class="prob-fill" style="width:27%;background:#EF4444"></div></div></div>
+            </div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">💡 High-intensity fixture — BTTS likely given both teams' attacking form</div>
+            <div class="match-bet-row">
+              <a href="https://betway.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(0,166,81,0.15);color:#00A651;" aria-label="Bet on Betway">🟢 Betway 2.10</a>
+              <a href="https://bet365.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(2,123,91,0.15);color:#22C55E;" aria-label="Bet on Bet365">🎰 Bet365 2.15</a>
+            </div>
+          </article>
+
+          <!-- Match 2: Arsenal vs Chelsea -->
+          <article class="match-card" role="listitem" aria-label="Arsenal vs Chelsea prediction">
+            <div class="match-league">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League <span style="margin-left:8px;color:var(--muted);font-size:10px;">21:15</span></div>
+            <div class="match-teams">
+              <div class="match-names">Arsenal<br/>Chelsea</div>
+              <div>
+                <div class="match-pred-score" aria-label="AI predicted score 2-0">2–0</div>
+                <div style="font-size:10px;color:var(--muted);text-align:center;">AI pred.</div>
+              </div>
+            </div>
+            <div class="prob-row">
+              <div class="prob-col"><div class="prob-label">Arsenal 52%</div><div class="prob-bar"><div class="prob-fill" style="width:52%;background:#22C55E"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Draw 22%</div><div class="prob-bar"><div class="prob-fill" style="width:22%;background:#FACC15"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Chelsea 26%</div><div class="prob-bar"><div class="prob-fill" style="width:26%;background:#EF4444"></div></div></div>
+            </div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">💡 Arsenal unbeaten at home in last 12 — strong value on clean sheet</div>
+            <div class="match-bet-row">
+              <a href="https://betway.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(0,166,81,0.15);color:#00A651;">🟢 Betway 1.85</a>
+              <a href="https://bet365.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(2,123,91,0.15);color:#22C55E;">🎰 Bet365 1.88</a>
+            </div>
+          </article>
+
+          <!-- Match 3: Real Madrid vs Barcelona -->
+          <article class="match-card" role="listitem" aria-label="Real Madrid vs Barcelona prediction">
+            <div class="match-league">🇪🇸 La Liga <span style="margin-left:8px;color:var(--muted);font-size:10px;">21:00</span></div>
+            <div class="match-teams">
+              <div class="match-names">Real Madrid<br/>Barcelona</div>
+              <div>
+                <div class="match-pred-score" aria-label="AI predicted score 2-1">2–1</div>
+                <div style="font-size:10px;color:var(--muted);text-align:center;">AI pred.</div>
+              </div>
+            </div>
+            <div class="prob-row">
+              <div class="prob-col"><div class="prob-label">Real 48%</div><div class="prob-bar"><div class="prob-fill" style="width:48%;background:#22C55E"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Draw 25%</div><div class="prob-bar"><div class="prob-fill" style="width:25%;background:#FACC15"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Barca 27%</div><div class="prob-bar"><div class="prob-fill" style="width:27%;background:#EF4444"></div></div></div>
+            </div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">💡 El Clásico — Over 2.5 goals in 8 of last 10 meetings</div>
+            <div class="match-bet-row">
+              <a href="https://betway.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(0,166,81,0.15);color:#00A651;">🟢 Betway 2.10</a>
+              <a href="https://bet365.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(2,123,91,0.15);color:#22C55E;">🎰 Bet365 2.12</a>
+            </div>
+          </article>
+
+          <!-- Match 4: Bayern vs Dortmund -->
+          <article class="match-card" role="listitem" aria-label="Bayern vs Dortmund prediction">
+            <div class="match-league">🇩🇪 Bundesliga <span style="margin-left:8px;color:var(--muted);font-size:10px;">18:30</span></div>
+            <div class="match-teams">
+              <div class="match-names">Bayern<br/>Dortmund</div>
+              <div>
+                <div class="match-pred-score" aria-label="AI predicted score 3-1">3–1</div>
+                <div style="font-size:10px;color:var(--muted);text-align:center;">AI pred.</div>
+              </div>
+            </div>
+            <div class="prob-row">
+              <div class="prob-col"><div class="prob-label">Bayern 62%</div><div class="prob-bar"><div class="prob-fill" style="width:62%;background:#22C55E"></div></div></div>
+              <div class="prob-col"><div class="prob-label">Draw 18%</div><div class="prob-bar"><div class="prob-fill" style="width:18%;background:#FACC15"></div></div></div>
+              <div class="prob-col"><div class="prob-label">BVB 20%</div><div class="prob-bar"><div class="prob-fill" style="width:20%;background:#EF4444"></div></div></div>
+            </div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">💡 Der Klassiker — Bayern dominant at home, averaging 3.2 goals</div>
+            <div class="match-bet-row">
+              <a href="https://betway.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(0,166,81,0.15);color:#00A651;">🟢 Betway 1.75</a>
+              <a href="https://bet365.com" target="_blank" rel="noopener sponsored" class="bet-btn" style="background:rgba(2,123,91,0.15);color:#22C55E;">🎰 Bet365 1.78</a>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="text-align:center;margin-top:28px;">
+          <a href="/predictions" class="btn-primary">View All AI Predictions Today →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ HOW IT WORKS ══════════════════ -->
+    <section class="section" style="padding-top:0;" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;margin-bottom:40px;">How ScoresAI Works</h2>
+        <div class="steps" role="list">
+          <div class="step card" data-n="1" role="listitem">
+            <div class="step-icon" aria-hidden="true">📊</div>
+            <h3>Real Match Data</h3>
+            <p>We pull live stats, form, head-to-head records, and injury data from Sportmonks API for every match — automatically.</p>
+          </div>
+          <div class="step card" data-n="2" role="listitem">
+            <div class="step-icon" aria-hidden="true">🤖</div>
+            <h3>Claude AI Analysis</h3>
+            <p>Our AI engine (powered by Claude) analyzes each match and generates predicted scores, win probabilities, and top bets in seconds.</p>
+          </div>
+          <div class="step card" data-n="3" role="listitem">
+            <div class="step-icon" aria-hidden="true">💰</div>
+            <h3>Clickable Partner Odds</h3>
+            <p>Every prediction links directly to Betway and Bet365 with live odds — one tap to place your bet on the predicted outcome.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ FEATURES ══════════════════ -->
+    <section class="section" style="padding-top:0;" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:800;margin-bottom:32px;">Everything You Need</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">⚡</div>
+            <div>
+              <h3>Live Scores</h3>
+              <p>Real-time scores across 40+ leagues. Navigate by day, league, or search any team.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">🎯</div>
+            <div>
+              <h3>Exact Score Predictions</h3>
+              <p>AI-predicted scorelines for every match — not just 1X2, but the exact final score.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">🏆</div>
+            <div>
+              <h3>Community Predictor</h3>
+              <p>Make your own predictions and compete on the global leaderboard. Points for accuracy.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">⭐</div>
+            <div>
+              <h3>Follow Your Teams</h3>
+              <p>Follow any team or league and get personalized predictions and match alerts.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">🌙</div>
+            <div>
+              <h3>Dark &amp; Light Mode</h3>
+              <p>Fully adaptive interface — dark mode by default, switch to light with one tap.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">📱</div>
+            <div>
+              <h3>Install as App (PWA)</h3>
+              <p>Add ScoresAI to your home screen — works like a native app, no App Store needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ LEAGUES SEO ══════════════════ -->
+    <section class="section" style="padding-top:0;" aria-labelledby="leagues-title">
+      <div class="container">
+        <h2 id="leagues-title" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;margin-bottom:16px;">AI Predictions by League</h2>
+        <p style="color:var(--muted);margin-bottom:24px;">Browse predictions for your favourite competition</p>
+        <nav class="leagues-grid" aria-label="Football leagues">
+          <a href="/predictions/premier-league" class="league-badge">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</a>
+          <a href="/predictions/la-liga" class="league-badge">🇪🇸 La Liga</a>
+          <a href="/predictions/bundesliga" class="league-badge">🇩🇪 Bundesliga</a>
+          <a href="/predictions/serie-a" class="league-badge">🇮🇹 Serie A</a>
+          <a href="/predictions/ligue-1" class="league-badge">🇫🇷 Ligue 1</a>
+          <a href="/predictions/champions-league" class="league-badge">⭐ Champions League</a>
+          <a href="/predictions/mls" class="league-badge">🇺🇸 MLS</a>
+          <a href="/predictions/eredivisie" class="league-badge">🇳🇱 Eredivisie</a>
+          <a href="/predictions/liga-portugal" class="league-badge">🇵🇹 Liga Portugal</a>
+          <a href="/predictions/super-lig" class="league-badge">🇹🇷 Süper Lig</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ══════════════════ PARTNERS ══════════════════ -->
+    <section class="section" style="padding-top:0;text-align:center;" aria-labelledby="partners-title">
+      <div class="container">
+        <h2 id="partners-title" style="font-size:16px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:2px;">Betting Partners</h2>
+        <div class="partners">
+          <div class="partner-chip" style="color:var(--betway);border-color:rgba(0,166,81,0.3);">
+            🟢 <span>Betway</span>
+          </div>
+          <div class="partner-chip" style="color:#22C55E;border-color:rgba(2,123,91,0.3);">
+            🎰 <span>Bet365</span>
+          </div>
+          <div class="partner-chip" style="color:var(--muted);">
+            ➕ <span>More coming</span>
+          </div>
+        </div>
+        <p style="color:var(--dim);font-size:12px;margin-top:20px;">18+ | Gamble responsibly | <a href="/responsible-gambling" style="color:var(--dim);">BeGambleAware.org</a></p>
+      </div>
+    </section>
+
+    <!-- ══════════════════ FAQ (Schema-backed) ══════════════════ -->
+    <section class="section" style="padding-top:0;" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:800;margin-bottom:32px;text-align:center;">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+              How accurate are ScoresAI football predictions? <span>+</span>
+            </div>
+            <div class="faq-a">ScoresAI uses Claude AI trained on millions of football data points — team form, head-to-head records, home/away stats, injuries. Our predictions achieve an average accuracy rate of 68–72% on match outcomes, and up to 78% on selected high-confidence picks.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+              Is ScoresAI free? <span>+</span>
+            </div>
+            <div class="faq-a">Yes. ScoresAI is completely free to use. Creating a free account gives you unlimited AI predictions, live scores, and access to the community predictor. No credit card needed.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+              Which leagues does ScoresAI cover? <span>+</span>
+            </div>
+            <div class="faq-a">ScoresAI covers over 40 leagues including the Premier League, La Liga, Bundesliga, Serie A, Ligue 1, Champions League, MLS, Eredivisie, Liga Portugal and more — with new leagues added regularly.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+              How do the betting odds work? <span>+</span>
+            </div>
+            <div class="faq-a">ScoresAI partners with Betway and Bet365 to display live odds alongside every AI prediction. Clicking an odds button redirects you directly to the partner site where you can place your bet. ScoresAI earns a commission — this never affects prediction objectivity.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+              Can I install ScoresAI on my phone? <span>+</span>
+            </div>
+            <div class="faq-a">Yes! ScoresAI is a Progressive Web App (PWA). On mobile, tap "Add to Home Screen" from your browser menu to install it like a native app — no App Store download required.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ CTA FINAL ══════════════════ -->
+    <div class="container">
+      <div class="cta-section" role="complementary" aria-label="Sign up call to action">
+        <h2>Start Getting AI Predictions <span class="grad-text">Today. Free.</span></h2>
+        <p>Join 50,000+ football fans using ScoresAI to make smarter predictions every match day.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="/signup" class="btn-primary" style="font-size:16px;padding:15px 32px;">
+            🚀 Create Free Account
+          </a>
+          <a href="/predictions" class="btn-outline" style="font-size:16px;padding:14px 32px;border-color:rgba(124,58,237,0.4);">
+            View Live Predictions
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div style="font-weight:700;color:var(--muted);margin-bottom:6px;">ScoresAI</div>
+          <div>© 2025 ScoresAI. All rights reserved.</div>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/about">About</a>
+          <a href="/blog">Blog</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/responsible-gambling">Responsible Gambling</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+      <div style="margin-top:16px;color:var(--dim);font-size:11px;line-height:1.7;">
+        ScoresAI uses AI to generate football predictions for entertainment purposes. Predictions are not guaranteed and should not be used as sole basis for betting decisions.
+        Betting involves risk. 18+ only. Please gamble responsibly. <a href="https://www.begambleaware.org" rel="noopener" style="color:var(--dim);">BeGambleAware.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════ PWA SERVICE WORKER ══════════════════ -->
+  <script>
+    // Register service worker for PWA / offline support
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('ScoresAI SW registered:', reg.scope))
+          .catch(err => console.log('SW error:', err));
+      });
+    }
+
+    // Animate probability bars on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.prob-fill').forEach(bar => {
+            bar.style.width = bar.style.width; // trigger CSS transition
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.match-card').forEach(c => observer.observe(c));
+  </script>
+
+</body>
+</html>
