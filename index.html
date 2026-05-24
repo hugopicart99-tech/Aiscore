@@ -20,7 +20,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;overflow-x:hidden;min-height:100vh;padding-bottom:70px}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;overflow-x:hidden;min-height:100vh;padding-bottom:0}
 ::-webkit-scrollbar{width:3px;height:3px}::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px}
 a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;border:none;outline:none}input,select,textarea{font-family:inherit;outline:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -53,14 +53,14 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
 .n-search:hover{border-color:var(--border2);color:var(--text2)}
 
 /* ═══ BOTTOM NAV (always visible) ═══ */
-.bnav{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,31,.97);backdrop-filter:blur(14px);border-top:1px solid var(--border);z-index:100;display:flex}
-.bni{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 0 5px;font-size:9px;color:var(--muted);cursor:pointer;gap:3px;transition:all .15s;border-top:2px solid transparent;font-weight:500}
+.bnav{display:none;width:100%}
+.bni{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 5px;font-size:9px;color:var(--muted);cursor:pointer;gap:3px;transition:all .15s;border-top:2px solid transparent;font-weight:500;white-space:nowrap}
 .bni.on{color:var(--purple2);border-top-color:var(--purple);font-weight:700}
 .bni:hover:not(.on){color:var(--text2)}
 .bni-i{font-size:19px;line-height:1}
 
 /* ═══ DATE BAR ═══ */
-.dbar{background:var(--bg2);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.dbar{background:var(--bg2);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;width:100%}
 .dbar::-webkit-scrollbar{display:none}
 .dbar-in{display:flex;padding:0 12px;min-width:max-content;align-items:stretch}
 .di{display:flex;flex-direction:column;align-items:center;padding:7px 12px;cursor:pointer;font-size:10px;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap}
@@ -73,12 +73,148 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
 .ldot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite;flex-shrink:0}
 
 /* ═══ LAYOUT ═══ */
-.layout{display:flex;width:100%;min-height:calc(100vh - 122px)}
-.lsb{width:220px;flex-shrink:0;border-right:1px solid var(--border);padding:10px 0;position:sticky;top:52px;height:calc(100vh - 122px);overflow-y:auto}
-@media(max-width:860px){.lsb{display:none}}
-.feed{flex:1;min-width:0}
-.rsb{width:300px;flex-shrink:0;border-left:1px solid var(--border);padding:11px;position:sticky;top:52px;height:calc(100vh - 122px);overflow-y:auto}
-@media(max-width:1060px){.rsb{display:none}}
+/* ══ LAYOUT — Desktop first ══ */
+.layout{display:flex;width:100%;min-height:calc(100vh - 104px)}
+
+/* LEFT SIDEBAR — always visible on desktop */
+.lsb{
+  width:220px;flex-shrink:0;
+  border-right:1px solid var(--border);
+  padding:10px 0;
+  position:sticky;top:52px;
+  height:calc(100vh - 52px);
+  overflow-y:auto;
+  display:block;
+}
+
+/* MAIN FEED — takes all remaining space */
+.feed{flex:1;min-width:0;}
+
+/* RIGHT SIDEBAR — visible on large screens */
+.rsb{
+  width:300px;flex-shrink:0;
+  border-left:1px solid var(--border);
+  padding:11px;
+  position:sticky;top:52px;
+  height:calc(100vh - 52px);
+  overflow-y:auto;
+  display:block;
+}
+
+/* BOTTOM NAV — hidden on desktop, shown on mobile */
+.bnav{display:none}
+
+/* ══ LARGE DESKTOP (>1400px) — wider sidebars ══ */
+@media(min-width:1400px){
+  .lsb{width:260px}
+  .rsb{width:340px}
+}
+
+/* ══ LAPTOP (1061px–1399px) — standard 3 columns ══ */
+@media(max-width:1399px) and (min-width:1061px){
+  .lsb{width:220px}
+  .rsb{width:280px}
+}
+
+/* ══ TABLET LANDSCAPE (861px–1060px) — hide right sidebar ══ */
+@media(max-width:1060px){
+  .rsb{display:none}
+  .lsb{width:200px}
+}
+
+/* ══ TABLET PORTRAIT (681px–860px) — hide both sidebars ══ */
+@media(max-width:860px){
+  .lsb{display:none}
+  .rsb{display:none}
+  .layout{min-height:calc(100vh - 104px)}
+}
+
+/* ══ MOBILE (<680px) — full app mode ══ */
+@media(max-width:680px){
+  /* Body */
+  body{padding-bottom:60px}
+
+  /* Hide sidebars */
+  .lsb{display:none}
+  .rsb{display:none}
+
+  /* Show bottom nav */
+  .bnav{
+    display:flex;
+    position:fixed;bottom:0;left:0;right:0;
+    background:rgba(19,19,31,.98);
+    backdrop-filter:blur(16px);
+    border-top:1px solid var(--border);
+    z-index:100;
+  }
+
+  /* Compact top nav — hide sport tabs and auth buttons */
+  .nav-sp{display:none}
+  .n-btn{display:none}
+  .n-search{display:flex}
+
+  /* Date bar */
+  .di{padding:6px 9px}
+  .di-n{font-size:14px}
+  .di-d{font-size:9px}
+
+  /* Match rows — bigger touch targets */
+  .mrow{min-height:58px;padding:0 12px}
+  .tn{font-size:13px}
+  .sc{font-size:15px;font-weight:800}
+
+  /* League header */
+  .lg-h{padding:7px 12px}
+  .lg-nm{font-size:12px}
+
+  /* AI Score cards */
+  .ai-match-card{padding:13px 12px 11px}
+  .ai-teams-row{gap:4px}
+  .ai-team-e{font-size:26px}
+  .ai-team-n{font-size:11px}
+  .ai-pred-sc{font-size:26px;letter-spacing:2px}
+  .ai-pred-lbl{font-size:9px}
+  .ai-odds-row{gap:6px}
+  .odds-val{font-size:16px}
+
+  /* Predictions */
+  .sp-vote-btn{padding:7px 4px}
+  .sp-vote-pct{font-size:14px}
+  .sp-vote-lbl{font-size:9px}
+  .user-pred-stats{gap:6px;padding:11px}
+  .ups-val{font-size:18px}
+
+  /* Leaderboard */
+  .lb-row{padding:9px 12px;gap:8px}
+  .lb-avatar{width:32px;height:32px;font-size:12px}
+  .lb-name{font-size:12px}
+  .lb-acc-val{font-size:14px}
+
+  /* Account */
+  .acc-stats{grid-template-columns:repeat(2,1fr);gap:7px;padding:11px}
+  .acc-stat-v{font-size:18px}
+  .acc-menu-item{padding:12px 14px}
+
+  /* Match detail panel — full screen */
+  .panel{width:100vw;border-left:none;border-radius:0}
+  .p-sc{font-size:38px;letter-spacing:3px}
+  .p-crest{font-size:32px}
+  .p-tname{font-size:12px}
+  .ptab{padding:8px 10px;font-size:10px}
+
+  /* Favourites grid */
+  .fav-team-grid{gap:6px;padding:10px 12px}
+  .fav-team-chip{font-size:12px;padding:7px 10px}
+
+  /* Paywall strip */
+  .pw-strip{flex-direction:column;text-align:center;padding:11px 14px;gap:8px}
+
+  /* Auth modal — bottom sheet */
+  .modal{padding:18px;border-radius:16px 16px 0 0}
+
+  /* Search overlay */
+  .sov{padding:52px 12px 12px}
+}
 
 /* ═══ LEFT SIDEBAR ═══ */
 .sb-ttl{font-size:9px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.9px;padding:8px 13px 4px}
