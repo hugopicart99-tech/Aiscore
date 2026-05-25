@@ -20,7 +20,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;overflow:hidden;height:100vh;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;margin:0;padding:0;overflow:hidden;}
 ::-webkit-scrollbar{width:3px;height:3px}::-webkit-scrollbar-thumb{background:var(--purple);border-radius:2px}
 a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;border:none;outline:none}input,select,textarea{font-family:inherit;outline:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -74,13 +74,14 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
 
 /* ═══ LAYOUT ═══ */
 /* ══ LAYOUT — Desktop first ══ */
-/* ══ LAYOUT SYSTEM — Desktop first, fully adaptive ══ */
-
-/* Layout row: left sidebar + feed + right sidebar */
+/* ══ LAYOUT SYSTEM ══ */
 .layout{
   display:flex;
-  width:100vw;
-  height:calc(100vh - 52px);
+  position:fixed;
+  top:52px;
+  left:0;
+  right:0;
+  bottom:0;
   overflow:hidden;
 }
 
@@ -91,17 +92,15 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
   border-right:1px solid var(--border);
   padding:10px 0;
   overflow-y:auto;
-  height:calc(100vh - 52px);
-  position:sticky;
-  top:52px;
+  height:100%;
 }
 
-/* MAIN FEED — expands to fill all remaining space */
+/* MAIN FEED */
 .feed{
-  flex:1 1 0%;
+  flex:1;
   min-width:0;
   overflow-y:auto;
-  height:calc(100vh - 52px);
+  height:100%;
 }
 
 /* RIGHT SIDEBAR */
@@ -111,45 +110,51 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
   border-left:1px solid var(--border);
   padding:11px;
   overflow-y:auto;
-  height:calc(100vh - 52px);
-  position:sticky;
-  top:52px;
+  height:100%;
 }
 
 /* BOTTOM NAV — desktop: hidden */
 .bnav{display:none}
 
-/* ══ LARGE DESKTOP >1400px ══ */
+/* ══ >1400px ══ */
 @media(min-width:1400px){
   .lsb{width:260px}
   .rsb{width:340px}
 }
 
-/* ══ STANDARD LAPTOP 1061–1399px ══ */
+/* ══ 1061–1399px ══ */
 @media(max-width:1399px) and (min-width:1061px){
   .lsb{width:220px}
   .rsb{width:280px}
 }
 
-/* ══ SMALL LAPTOP / TABLET LANDSCAPE 861–1060px: hide right sidebar ══ */
+/* ══ 861–1060px: hide right sidebar ══ */
 @media(max-width:1060px){
   .rsb{display:none}
   .lsb{width:200px}
-  .feed{height:calc(100vh - 52px)}
 }
 
-/* ══ TABLET PORTRAIT 681–860px: hide both sidebars ══ */
+/* ══ 681–860px: hide both sidebars ══ */
 @media(max-width:860px){
   .lsb{display:none}
   .rsb{display:none}
-  .feed{height:auto;overflow-y:visible}
 }
 
 /* ══ MOBILE <680px: full app experience ══ */
 @media(max-width:680px){
-  body{padding-bottom:60px}
+  body{padding-bottom:60px;overflow-y:auto;overflow-x:hidden}
   .lsb{display:none}
   .rsb{display:none}
+
+  /* Override fixed layout for mobile - let page scroll naturally */
+  .layout{
+    position:relative;
+    top:auto;
+    height:auto;
+    overflow:visible;
+    display:block;
+    width:100%;
+  }
   .feed{height:auto;overflow-y:visible}
 
   /* Show bottom nav */
@@ -166,11 +171,6 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
   .nav-sp{display:none}
   .n-btn{display:none}
   .n-search{display:flex}
-
-  /* Mobile: unfix the layout so page scrolls naturally */
-  body{overflow:auto;height:auto}
-  .layout{height:auto;overflow:visible;width:100%}
-  .feed{height:auto;overflow-y:visible}
 
   /* Date bar */
   .di{padding:6px 9px}
@@ -589,9 +589,6 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
   </div>
 </nav>
 
-<!-- ═══ DATE BAR (home only) ═══ -->
-<div class="dbar" id="dbar" style="display:none"><div class="dbar-in" id="dbarIn"></div></div>
-
 <!-- ═══ MAIN ═══ -->
 <div class="layout">
   <aside class="lsb" id="lsb">
@@ -621,7 +618,9 @@ a{text-decoration:none;color:inherit}button{cursor:pointer;font-family:inherit;b
     </div>
   </aside>
 
-  <main id="mainArea">
+  <main id="mainArea" class="feed">
+    <!-- DATE BAR (home only) -->
+    <div class="dbar" id="dbar" style="display:none"><div class="dbar-in" id="dbarIn"></div></div>
     <!-- HOME page -->
     <div class="page on" id="pg-home"></div>
     <!-- FAVOURITES page -->
